@@ -88,6 +88,6 @@ collections/
 
 1️⃣ **Clone the repository**
 ```bash
-git clone https://github.com//cinec_movie_app.git
+https://github.com/Aathi18/cinec_movie_app.git
 cd cinec_movie_app
 
