@@ -41,4 +41,53 @@ The app integrates **Firebase** for authentication, Firestore for real-time data
 ## 🏗️ **Architecture & Database**
 
 ### 🗂️ **Firestore Collections**
+collections/
+├── movies/
+│ └── {movieId}/
+│ ├── title: string
+│ ├── synopsis: string
+│ ├── genre: string
+│ ├── duration: number
+│ ├── posterUrl: string
+│ └── trailerUrl: string
+├── showtimes/
+│ └── {showtimeId}/
+│ ├── movieId: string
+│ ├── theater: string
+│ ├── time: timestamp
+│ ├── price: number
+│ ├── totalSeats: number
+│ └── bookedSeats: array
+├── bookings/
+│ └── {bookingId}/
+│ ├── userId: reference
+│ ├── showtimeRef: reference
+│ ├── seats: array
+│ ├── totalAmount: number
+│ ├── bookingDate: timestamp
+│ └── movieTitle: string
+└── users/
+└── {userId}/
+├── email: string
+└── name: string
+
+
+---
+
+## ⚙️ **Installation & Setup**
+
+### 🧩 **Prerequisites**
+- Flutter SDK **(v3.0 or higher)**
+- Android Studio / VS Code with Flutter plugin
+- Firebase project configured
+- Git
+
+---
+
+### 🚀 **Setup Steps**
+
+1️⃣ **Clone the repository**
+```bash
+git clone https://github.com//cinec_movie_app.git
+cd cinec_movie_app
 
