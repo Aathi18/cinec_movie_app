@@ -91,3 +91,28 @@ collections/
 https://github.com/Aathi18/cinec_movie_app.git
 cd cinec_movie_app
 
+2️⃣ Install dependencies
+flutter pub get
+
+3️⃣ Firebase Setup
+
+Create a project on Firebase Console
+Enable Authentication (Email/Password)
+
+Enable Cloud Firestore and Storage
+
+Download google-services.json → place in android/app/
+
+Add your SHA-1 and SHA-256 keys to Firebase
+
+4️⃣ Configure Firebase
+Update lib/firebase_options.dart with your Firebase configuration.
+
+5️⃣ Run the app
+flutter run
+
+📦 Building Release APK
+
+To generate a release APK:
+flutter build apk --release
+build/app/outputs/flutter-apk/app-release.apk
