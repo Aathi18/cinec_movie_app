@@ -41,35 +41,33 @@ The app integrates **Firebase** for authentication, Firestore for real-time data
 ## 🏗️ **Architecture & Database**
 
 ### 🗂️ **Firestore Collections**
-collections/
-├── movies/
-│ └── {movieId}/
-│ ├── title: string
-│ ├── synopsis: string
-│ ├── genre: string
-│ ├── duration: number
-│ ├── posterUrl: string
-│ └── trailerUrl: string
-├── showtimes/
-│ └── {showtimeId}/
-│ ├── movieId: string
-│ ├── theater: string
-│ ├── time: timestamp
-│ ├── price: number
-│ ├── totalSeats: number
-│ └── bookedSeats: array
-├── bookings/
-│ └── {bookingId}/
-│ ├── userId: reference
-│ ├── showtimeRef: reference
-│ ├── seats: array
-│ ├── totalAmount: number
-│ ├── bookingDate: timestamp
-│ └── movieTitle: string
-└── users/
-└── {userId}/
-├── email: string
-└── name: string
+lib/
+├── main.dart
+├── firebase_options.dart
+├── models/
+│   ├── movie.dart
+│   ├── showtime.dart
+│   ├── booking.dart
+│   └── user.dart
+├── screens/
+│   ├── home_screen.dart
+│   ├── movie_detail_screen.dart
+│   ├── login_screen.dart
+│   ├── register_screen.dart
+│   ├── seat_selection_screen.dart
+│   └── booking_history_screen.dart
+├── services/
+│   ├── auth_service.dart
+│   ├── booking_service.dart
+│   └── movie_service.dart
+├── utils/
+│   ├── add_showtimes.dart
+│   └── movie_admin.dart
+└── widgets/
+    ├── movie_card.dart
+    ├── seat_selection_widget.dart
+    └── logout_button.dart
+
 
 
 ---
