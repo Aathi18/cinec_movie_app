@@ -1,228 +1,44 @@
-# Cinec Movie Booking App
+# 🎬 **Cinec Movie Booking App**
 
-A Flutter-based movie ticket booking application with Firebase backend integration.
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-v3.13.0+-blue?logo=flutter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Firebase-Backend-orange?logo=firebase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Android%20|%20iOS-success?logo=android&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green" />
+</p>
 
-## Features
+---
 
-- Browse latest movies with details and showtimes
-- User authentication (Sign up/Sign in)
-- Real-time seat selection and booking
-- View booking history
-- Multiple screens and showtimes support
-- Admin features for managing showtimes
+## 🎥 **Overview**
 
-## Screenshots
+**Cinec Movie Booking App** is a Flutter-based mobile application designed for an intuitive movie ticket booking experience.  
+The app integrates **Firebase** for authentication, Firestore for real-time data, and Storage for movie poster management.
 
-[Add your app screenshots here]
+---
 
-## Architecture
+## ✨ **Features**
 
-### Tech Stack
-- **Frontend**: Flutter
-- **Backend**: Firebase
-  - Authentication
-  - Cloud Firestore
-  - Storage (for movie posters)
-- **State Management**: Stream-based reactivity with Firebase
-- **Design Pattern**: Repository pattern for data layer
+🎦 **Browse Movies** – Explore the latest movies with detailed descriptions and posters.  
+🎟️ **Book Tickets** – Real-time seat selection and secure booking.  
+🕒 **Showtime Management** – Multiple showtimes per movie with seat availability tracking.  
+👤 **User Authentication** – Sign up / Sign in via Firebase Authentication.  
+📜 **Booking History** – View past bookings instantly.  
+🛠️ **Admin Panel** – Add and manage showtimes and movie data.
 
-### Database Structure
+---
 
-```
-collections/
-├── movies/
-│   └── {movieId}/
-│       ├── title: string
-│       ├── synopsis: string
-│       ├── genre: string
-│       ├── duration: number
-│       ├── posterUrl: string
-│       └── trailerUrl: string
-├── showtimes/
-│   └── {showtimeId}/
-│       ├── movieId: string
-│       ├── theater: string
-│       ├── time: timestamp
-│       ├── price: number
-│       ├── totalSeats: number
-│       └── bookedSeats: array
-├── bookings/
-│   └── {bookingId}/
-│       ├── userId: reference
-│       ├── showtimeRef: reference
-│       ├── seats: array
-│       ├── totalAmount: number
-│       ├── bookingDate: timestamp
-│       └── movieTitle: string
-└── users/
-    └── {userId}/
-        ├── email: string
-        └── name: string
-```
+## 🧠 **Tech Stack**
 
-## Installation
+| Layer | Technology |
+|:--|:--|
+| **Frontend** | Flutter (Dart) |
+| **Backend** | Firebase (Authentication, Firestore, Storage) |
+| **State Management** | Stream-based reactivity |
+| **Design Pattern** | Repository pattern for data layer |
 
-### Prerequisites
-- Flutter SDK (3.0 or higher)
-- Android Studio / VS Code with Flutter plugins
-- Firebase project setup
-- Git
+---
 
-### Setup Steps
+## 🏗️ **Architecture & Database**
 
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/cinec_movie_app.git
-cd cinec_movie_app
-```
+### 🗂️ **Firestore Collections**
 
-2. Install dependencies
-```bash
-flutter pub get
-```
-
-3. Firebase Setup
-   - Create a new Firebase project at [Firebase Console](https://console.firebase.google.com)
-   - Enable Authentication (Email/Password)
-   - Enable Cloud Firestore
-   - Enable Storage
-   - Download `google-services.json` and place it in `android/app/`
-   - Add your SHA-1 and SHA-256 certificates to Firebase project
-
-4. Configure Firebase in the app
-   - Update `lib/firebase_options.dart` with your Firebase configuration
-   - Ensure Firestore rules are set appropriately
-
-5. Run the app
-```bash
-flutter run
-```
-
-### Building Release APK
-
-To generate a release APK:
-
-```bash
-flutter build apk --release
-```
-
-The APK will be available at: `build/app/outputs/flutter-apk/app-release.apk`
-
-## Usage Guide
-
-### User Flow
-
-1. **Authentication**
-   - Open the app
-   - Sign up with email/password or sign in if existing user
-   - Admin credentials (if needed): admin@cinec.com
-
-2. **Booking Process**
-   - Browse available movies on home screen
-   - Select a movie to view details
-   - Choose preferred showtime
-   - Select seats
-   - Confirm booking
-   - View booking in history
-
-3. **Admin Features**
-   - Access admin panel (debug mode)
-   - Manage showtimes
-   - Edit movie details
-   - View booking statistics
-
-## Project Structure
-
-```
-lib/
-├── main.dart
-├── firebase_options.dart
-├── models/
-│   ├── movie.dart
-│   ├── showtime.dart
-│   ├── booking.dart
-│   └── user.dart
-├── screens/
-│   ├── home_screen.dart
-│   ├── movie_detail_screen.dart
-│   ├── login_screen.dart
-│   ├── register_screen.dart
-│   ├── seat_selection_screen.dart
-│   └── booking_history_screen.dart
-├── services/
-│   └── booking_service.dart
-├── utils/
-│   └── add_showtimes.dart
-└── widgets/
-    ├── movie_card.dart
-    └── seat_selection_widget.dart
-```
-
-## Architecture Flow
-
-```mermaid
-graph TD
-    A[User Interface] --> B[Screens]
-    B --> C[Services Layer]
-    C --> D[Firebase Services]
-    D --> E[Cloud Firestore]
-    D --> F[Firebase Auth]
-    D --> G[Firebase Storage]
-```
-
-## Error Handling
-
-The app implements comprehensive error handling for:
-- Network issues
-- Authentication failures
-- Booking conflicts
-- Invalid seat selections
-- Firebase operation failures
-
-## Performance Considerations
-
-- Lazy loading of movie posters
-- Efficient Firestore queries
-- Caching of frequently accessed data
-- Optimized state management
-- Minimal UI rebuilds
-
-## Security
-
-- Firebase Authentication
-- Firestore Security Rules
-- Data validation
-- Secure file storage
-- Protected admin routes
-
-## Future Enhancements
-
-- Payment gateway integration
-- Push notifications
-- Movie reviews and ratings
-- Social sharing
-- Offline support
-- Multi-language support
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-Your Name - your.email@example.com
-Project Link: [https://github.com/yourusername/cinec_movie_app](https://github.com/yourusername/cinec_movie_app)
-
-## Acknowledgments
-
-- Flutter team for the amazing framework
-- Firebase for backend services
-- All contributors who helped with the project
