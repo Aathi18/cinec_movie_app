@@ -37,14 +37,14 @@ class ShowtimeManager {
   /// Firestore database instance
   static final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  /// Creates a DateTime for today (Nov 2, 2025) at a specific time
+  /// Creates a DateTime for today (Nov 10, 2025) at a specific time
   static DateTime timeToday(int hour, int minute) {
-    return DateTime(2025, 11, 2, hour, minute);
+    return DateTime(2025, 11, 17, hour, minute);
   }
 
-  /// Creates a DateTime for tomorrow (Nov 3, 2025) at a specific time
+  /// Creates a DateTime for tomorrow (Nov 10, 2025) at a specific time
   static DateTime timeTomorrow(int hour, int minute) {
-    return DateTime(2025, 11, 3, hour, minute);
+    return DateTime(2025, 11,25, hour, minute);
   }
 
   /// Map of movie IDs to their ticket prices
@@ -105,8 +105,8 @@ class ShowtimeManager {
       const {'h': 21, 'm': 30},
     ];
 
-    final startDate = DateTime(2025, 11, 2);
-    final days = 5; // Nov 2,3,4,5,6
+    final startDate = DateTime(2025, 11, 17);
+    final days = 7; // Nov 2,3,4,5,6
 
     // We'll iterate over each day, screen and time slot, and assign a movie in round-robin
     var slotCounter = 0;
